@@ -19,4 +19,12 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(horizontalInput, 0, verticalInput);
         transform.Translate(movement);
     }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject != null)
+        {
+            Debug.Log(collider.gameObject.name);
+        }
+    }
 }
