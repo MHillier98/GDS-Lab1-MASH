@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public AudioSource PickupSound;
 
+    [SerializeField]
+    public AudioSource DropoffSound;
+
     private void Start()
     {
         ScoreCounter = gameObject.GetComponentInChildren<TextMeshPro>();
@@ -66,8 +69,16 @@ public class PlayerController : MonoBehaviour
         }
         else if (collider.gameObject.tag.Equals("Hospital"))
         {
-            HospitalController hospital = collider.gameObject.GetComponent<HospitalController>();
-            hospital.AddSoldiersCollected(SoldiersCollected);
+            if (DropoffSound != null)
+            {
+                DropoffSound.Play();
+            }
+
+            HospitalController hospitalController = collider.gameObject.GetComponent<HospitalController>();
+            if (hospitalController != null)
+            {
+                hospitalController.AddSoldiersCollected(SoldiersCollected);
+            }
             SoldiersCollected = 0;
         }
         else if (collider.gameObject.tag.Equals("Rock"))
