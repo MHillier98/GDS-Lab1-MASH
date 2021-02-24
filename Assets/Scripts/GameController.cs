@@ -8,6 +8,12 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private TextMeshPro HoverText;
 
+    [SerializeField]
+    public GameObject Player;
+
+    [SerializeField]
+    public Vector3 PlayerSpawnPosition;
+
     private bool gameover = false;
 
     private void Start()
@@ -31,7 +37,7 @@ public class GameController : MonoBehaviour
                 {
                     HoverText.SetText("Why is there more than one player?!");
                 }
-                gameover = true;
+                //gameover = true;
                 return;
             }
             else if (players.Length <= 0)
@@ -52,7 +58,16 @@ public class GameController : MonoBehaviour
                 {
                     HoverText.SetText("You win!");
                 }
-                gameover = true;
+                //gameover = true;
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                HoverText.SetText("");
+                Instantiate(Player, PlayerSpawnPosition, Quaternion.Euler(0, 90, 0));
+                gameover = false;
             }
         }
     }
