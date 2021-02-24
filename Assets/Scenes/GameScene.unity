@@ -297,10 +297,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 441526947}
+  - component: {fileID: 441526949}
   - component: {fileID: 441526948}
   m_Layer: 0
   m_Name: Hospital
-  m_TagString: Untagged
+  m_TagString: Hospital
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -332,6 +333,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20836c8d8684f3459141fc46fbaaade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoldiersCollected: 0
+--- !u!65 &441526949
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441526946}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 2, z: 3}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &449931746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -868,7 +883,7 @@ GameObject:
   - component: {fileID: 1302451959}
   m_Layer: 0
   m_Name: Soldier
-  m_TagString: Untagged
+  m_TagString: Soldier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1112,7 +1127,7 @@ GameObject:
   - component: {fileID: 2899854200288627481}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

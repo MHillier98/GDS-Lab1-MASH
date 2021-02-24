@@ -4,10 +4,26 @@ using UnityEngine;
 
 public class HospitalController : MonoBehaviour
 {
-    public int SoldiersCollected = 0;
+    [SerializeField]
+    private int SoldiersCollected = 0;
 
-    void Update()
+    public int GetSoldiersCollected()
     {
+        return SoldiersCollected;
+    }
 
+    public void SetSoldiersCollected(int NewSoldiers)
+    {
+        SoldiersCollected = NewSoldiers;
+    }
+
+    public void IncrementSoldiersCollected()
+    {
+        SoldiersCollected += 1;
+    }
+
+    public void AddSoldiersCollected(int NewSoldiers)
+    {
+        SoldiersCollected += NewSoldiers;
     }
 }

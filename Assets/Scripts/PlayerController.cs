@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
     public float MovementSpeed = 15.0f;
 
+    [SerializeField]
     public int SoldiersCollected = 0;
+
+    [SerializeField]
     public int MaxSoldiers = 3;
-
-    void Start()
-    {
-
-    }
 
     void Update()
     {
@@ -25,13 +24,19 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.name.Contains("Soldier"))
+        if (collider.gameObject.tag.Equals("Soldier"))
         {
             if (SoldiersCollected < MaxSoldiers)
             {
                 SoldiersCollected += 1;
                 Destroy(collider.gameObject);
             }
+        }
+        else if (collider.gameObject.tag.Equals("Hospital"))
+        {
+            HospitalController hospital = collider.gameObject.GetComponent<HospitalController>();
+            hospital.AddSoldiersCollected(SoldiersCollected);
+            SoldiersCollected = 0;
         }
     }
 }
