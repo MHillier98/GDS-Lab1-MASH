@@ -54,6 +54,9 @@ MonoBehaviour:
   HoverText: {fileID: 0}
   Player: {fileID: 7267091670442198842, guid: edd8f29fcc04eea418d3c843b0fa3860, type: 3}
   PlayerSpawnPosition: {x: -10, y: 0.3, z: 0}
+  WavesCompleted: 0
+  RockObject: {fileID: 0}
+  SoldierObject: {fileID: 0}
 --- !u!23 &2107914763729258909
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -73,7 +76,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2278685757735390753, guid: 65589b82c2cb02442b80e2e611071c1f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -117,8 +120,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: hello there
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 65589b82c2cb02442b80e2e611071c1f, type: 2}
+  m_sharedMaterial: {fileID: 2278685757735390753, guid: 65589b82c2cb02442b80e2e611071c1f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -142,8 +145,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
