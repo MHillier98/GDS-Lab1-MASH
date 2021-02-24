@@ -22,9 +22,9 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject != null)
+        if (collider.gameObject.name.Equals("Soldier"))
         {
-            Debug.Log(collider.gameObject.name);
+            Destroy(collider.gameObject);
         }
     }
 }
