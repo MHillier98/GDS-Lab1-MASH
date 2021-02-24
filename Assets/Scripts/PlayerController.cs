@@ -18,10 +18,13 @@ public class PlayerController : MonoBehaviour
     private TextMeshPro ScoreCounter;
 
     [SerializeField]
-    public AudioSource PickupSound;
+    public AudioClip PickupSound;
 
     [SerializeField]
-    public AudioSource DropoffSound;
+    public AudioClip DropoffSound;
+
+    [SerializeField]
+    public AudioClip DeathSound;
 
     private void Start()
     {
@@ -60,7 +63,8 @@ public class PlayerController : MonoBehaviour
             {
                 if (PickupSound != null)
                 {
-                    PickupSound.Play();
+                    Vector3 soundLocation = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 20.0f, gameObject.transform.position.z);
+                    AudioSource.PlayClipAtPoint(PickupSound, soundLocation);
                 }
 
                 SoldiersCollected += 1;
@@ -71,7 +75,8 @@ public class PlayerController : MonoBehaviour
         {
             if (DropoffSound != null)
             {
-                DropoffSound.Play();
+                Vector3 soundLocation = new Vector3(0, gameObject.transform.position.y + 20.0f, 0);
+                AudioSource.PlayClipAtPoint(DropoffSound, soundLocation);
             }
 
             HospitalController hospitalController = collider.gameObject.GetComponent<HospitalController>();
@@ -83,6 +88,12 @@ public class PlayerController : MonoBehaviour
         }
         else if (collider.gameObject.tag.Equals("Rock"))
         {
+            if (DeathSound != null)
+            {
+                Vector3 soundLocation = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 20.0f, gameObject.transform.position.z);
+                AudioSource.PlayClipAtPoint(DeathSound, soundLocation);
+            }
+
             Destroy(gameObject);
         }
     }
