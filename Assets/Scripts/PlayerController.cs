@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private TextMeshPro ScoreCounter;
 
+    [SerializeField]
+    public AudioSource PickupSound;
+
     private void Start()
     {
         ScoreCounter = gameObject.GetComponentInChildren<TextMeshPro>();
@@ -52,6 +55,11 @@ public class PlayerController : MonoBehaviour
         {
             if (SoldiersCollected < MaxSoldiers)
             {
+                if (PickupSound != null)
+                {
+                    PickupSound.Play();
+                }
+
                 SoldiersCollected += 1;
                 Destroy(collider.gameObject);
             }

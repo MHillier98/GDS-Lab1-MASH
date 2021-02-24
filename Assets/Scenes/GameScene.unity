@@ -996,6 +996,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3914786663745686992, guid: 0be096727393a3d4eac9b3458a8f6651, type: 3}
   m_PrefabInstance: {fileID: 870210916}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &902421308 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7617129082102825387, guid: edd8f29fcc04eea418d3c843b0fa3860, type: 3}
+  m_PrefabInstance: {fileID: 5541608255111334956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,7 +1332,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HoverText: {fileID: 0}
-  BackgroundMusic: {fileID: 0}
 --- !u!23 &1285777102
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1400,7 +1404,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c68d26d8819eb3d4f8b9e9acaf059dfb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2101,6 +2105,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7267091670442198837, guid: edd8f29fcc04eea418d3c843b0fa3860, type: 3}
+      propertyPath: PickupSound
+      value: 
+      objectReference: {fileID: 902421308}
     - target: {fileID: 7267091670442198842, guid: edd8f29fcc04eea418d3c843b0fa3860, type: 3}
       propertyPath: m_Name
       value: Player
