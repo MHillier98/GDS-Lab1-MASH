@@ -38,5 +38,9 @@ public class PlayerController : MonoBehaviour
             hospital.AddSoldiersCollected(SoldiersCollected);
             SoldiersCollected = 0;
         }
+        else if (collider.gameObject.tag.Equals("Rock"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
