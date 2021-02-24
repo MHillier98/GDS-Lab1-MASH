@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
             HoverText.SetText("");
         }
 
-        GenerateMap(true, true);
+        GenerateMap();
     }
 
     private void Update()
@@ -71,7 +71,8 @@ public class GameController : MonoBehaviour
                         if (HoverText != null)
                         {
                             WavesCompleted += 1;
-                            GenerateMap(false, true); // spawn new soldiers
+                            ClearMap();
+                            GenerateMap();
                         }
                     }
                 }
@@ -88,7 +89,23 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void GenerateMap(bool generateRocks = false, bool generateSoldiers = false)
+    private void ClearMap()
+    {
+        GameObject[] ExistingRocks = GameObject.FindGameObjectsWithTag("Rock");
+        GameObject[] ExistingSoldiers = GameObject.FindGameObjectsWithTag("Soldier");
+
+        foreach (GameObject rock in ExistingRocks)
+        {
+            Destroy(rock);
+        }
+
+        foreach (GameObject soldier in ExistingSoldiers)
+        {
+            Destroy(soldier);
+        }
+    }
+
+    private void GenerateMap()
     {
         for (float x = -5.0f; x <= 22.0f; x += 0.5f)
         {
@@ -98,7 +115,7 @@ public class GameController : MonoBehaviour
                 float noise = Mathf.PerlinNoise(x + newNoise, y + newNoise);
                 if (noise >= 0.87f)
                 {
-                    if (RockObject != null && generateRocks)
+                    if (RockObject != null)
                     {
                         float randomRotation = Random.Range(0, 360);
                         Instantiate(RockObject, new Vector3(x, 0.0f, y), Quaternion.Euler(0, randomRotation, 0));
@@ -106,7 +123,7 @@ public class GameController : MonoBehaviour
                 }
                 else if (noise <= 0.04f)
                 {
-                    if (SoldierObject != null && generateSoldiers)
+                    if (SoldierObject != null)
                     {
                         float randomRotation = Random.Range(0, 360);
                         Instantiate(SoldierObject, new Vector3(x, 0.5f, y), Quaternion.Euler(90.0f, 0, 0));
