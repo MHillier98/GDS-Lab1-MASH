@@ -1053,6 +1053,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 15
+  SoldiersCollected: 0
+  MaxSoldiers: 3
 --- !u!54 &2899854200288627482
 Rigidbody:
   m_ObjectHideFlags: 0

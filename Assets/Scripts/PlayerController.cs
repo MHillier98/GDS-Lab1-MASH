@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     public float MovementSpeed = 15.0f;
 
+    public int SoldiersCollected = 0;
+    public int MaxSoldiers = 3;
+
     void Start()
     {
 
@@ -22,9 +25,13 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.name.Equals("Soldier"))
+        if (collider.gameObject.name.Contains("Soldier"))
         {
-            Destroy(collider.gameObject);
+            if (SoldiersCollected < MaxSoldiers)
+            {
+                SoldiersCollected += 1;
+                Destroy(collider.gameObject);
+            }
         }
     }
 }
