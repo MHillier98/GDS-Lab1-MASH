@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -13,7 +14,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public int MaxSoldiers = 3;
 
-    void Update()
+    [SerializeField]
+    private TextMeshPro ScoreCounter;
+
+    private void Start()
+    {
+        ScoreCounter = gameObject.GetComponentInChildren<TextMeshPro>();
+        UpdateScoreText();
+    }
+
+    private void Update()
+    {
+        Move();
+        UpdateScoreText();
+    }
+
+    private void Move()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal") * Time.deltaTime * MovementSpeed;
         float verticalInput = Input.GetAxisRaw("Vertical") * Time.deltaTime * -MovementSpeed;
@@ -22,7 +38,15 @@ public class PlayerController : MonoBehaviour
         transform.Translate(movement);
     }
 
-    void OnTriggerEnter(Collider collider)
+    private void UpdateScoreText()
+    {
+        if (ScoreCounter != null)
+        {
+            ScoreCounter.SetText(SoldiersCollected.ToString());
+        }
+    }
+
+    private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag.Equals("Soldier"))
         {
