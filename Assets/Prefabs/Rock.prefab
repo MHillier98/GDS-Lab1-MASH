@@ -127,6 +127,10 @@ PrefabInstance:
       value: rock_crystalsLargeB
       objectReference: {fileID: 0}
     - target: {fileID: 6132380070128203934, guid: f3bada53724a44b4cb99ad9e3464895d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132380070128203934, guid: f3bada53724a44b4cb99ad9e3464895d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 619853f8a783ce14db87d25c0fdd9d54, type: 2}
@@ -137,7 +141,7 @@ PrefabInstance:
     - target: {fileID: 6132380070128203934, guid: f3bada53724a44b4cb99ad9e3464895d, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 7db213526e42d0943bb1dc4799d87acb, type: 2}
+      objectReference: {fileID: 2100000, guid: 1a76d1de26dc4904e8bf84fa358b1ea4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3bada53724a44b4cb99ad9e3464895d, type: 3}
 --- !u!4 &1628011380965384095 stripped
