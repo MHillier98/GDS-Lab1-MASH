@@ -62,10 +62,18 @@ public class GameController : MonoBehaviour
             GameObject[] soldiers = GameObject.FindGameObjectsWithTag("Soldier");
             if (soldiers.Length <= 0)
             {
-                if (HoverText != null)
+                if (players.Length > 0)
                 {
-                    WavesCompleted += 1;
-                    GenerateMap(false, true); // spawn new soldiers
+                    PlayerController playerController = players[0].GetComponent<PlayerController>();
+                    int playerSoldiersCollected = playerController.GetSoldiersCollected();
+                    if (playerSoldiersCollected <= 0)
+                    {
+                        if (HoverText != null)
+                        {
+                            WavesCompleted += 1;
+                            GenerateMap(false, true); // spawn new soldiers
+                        }
+                    }
                 }
             }
         }
@@ -96,7 +104,7 @@ public class GameController : MonoBehaviour
                         Instantiate(RockObject, new Vector3(x, 0.0f, y), Quaternion.Euler(0, randomRotation, 0));
                     }
                 }
-                else if (noise <= 0.05f)
+                else if (noise <= 0.04f)
                 {
                     if (SoldierObject != null && generateSoldiers)
                     {

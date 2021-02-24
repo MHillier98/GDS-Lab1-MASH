@@ -55,6 +55,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public int GetSoldiersCollected()
+    {
+        return SoldiersCollected;
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag.Equals("Soldier"))
