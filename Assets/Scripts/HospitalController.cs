@@ -49,4 +49,9 @@ public class HospitalController : MonoBehaviour
     {
         SoldiersCollected += NewSoldiers;
     }
+
+    public void ClearSoldiersCollected()
+    {
+        SoldiersCollected = 0;
+    }
 }

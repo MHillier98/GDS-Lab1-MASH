@@ -33,6 +33,7 @@ public class GameController : MonoBehaviour
             HoverText.SetText("");
         }
 
+        ClearMap();
         GenerateMap();
     }
 
@@ -83,6 +84,9 @@ public class GameController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 HoverText.SetText("");
+                ClearMap();
+                GenerateMap();
+
                 Instantiate(Player, PlayerSpawnPosition, Quaternion.Euler(0, 90, 0));
                 gameover = false;
             }
@@ -92,16 +96,22 @@ public class GameController : MonoBehaviour
     private void ClearMap()
     {
         GameObject[] ExistingRocks = GameObject.FindGameObjectsWithTag("Rock");
-        GameObject[] ExistingSoldiers = GameObject.FindGameObjectsWithTag("Soldier");
-
         foreach (GameObject rock in ExistingRocks)
         {
             Destroy(rock);
         }
 
+        GameObject[] ExistingSoldiers = GameObject.FindGameObjectsWithTag("Soldier");
         foreach (GameObject soldier in ExistingSoldiers)
         {
             Destroy(soldier);
+        }
+
+        GameObject[] ExistingHospitals = GameObject.FindGameObjectsWithTag("Hospital");
+        foreach (GameObject hospital in ExistingHospitals)
+        {
+            HospitalController hospitalController = hospital.GetComponent<HospitalController>();
+            hospitalController.ClearSoldiersCollected();
         }
     }
 
