@@ -55,8 +55,8 @@ MonoBehaviour:
   Player: {fileID: 7267091670442198842, guid: edd8f29fcc04eea418d3c843b0fa3860, type: 3}
   PlayerSpawnPosition: {x: -10, y: 0.3, z: 0}
   WavesCompleted: 0
-  RockObject: {fileID: 0}
-  SoldierObject: {fileID: 0}
+  RockObject: {fileID: 1233250469898942278, guid: 30b80f29e1e9cd64586d3d8c88590d17, type: 3}
+  SoldierObject: {fileID: 3914786663745687006, guid: 0be096727393a3d4eac9b3458a8f6651, type: 3}
 --- !u!23 &2107914763729258909
 MeshRenderer:
   m_ObjectHideFlags: 0
