@@ -26,25 +26,33 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public AudioClip DeathSound;
 
+    [SerializeField]
+    public Rigidbody Rigidbody;
+
     private void Start()
     {
         ScoreCounter = gameObject.GetComponentInChildren<TextMeshPro>();
+        Rigidbody = GetComponent<Rigidbody>();
         UpdateScoreText();
     }
 
     private void Update()
     {
-        Move();
         UpdateScoreText();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     private void Move()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal") * Time.deltaTime * MovementSpeed;
-        float verticalInput = Input.GetAxisRaw("Vertical") * Time.deltaTime * -MovementSpeed;
+        float verticalInput = Input.GetAxisRaw("Vertical") * Time.deltaTime * MovementSpeed;
 
-        Vector3 movement = new Vector3(verticalInput, 0, horizontalInput);
-        transform.Translate(movement);
+        Vector3 movement = new Vector3(horizontalInput, 0, verticalInput);
+        Rigidbody.AddForce(movement * MovementSpeed);
     }
 
     private void UpdateScoreText()
