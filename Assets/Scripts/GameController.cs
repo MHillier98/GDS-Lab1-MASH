@@ -85,6 +85,7 @@ public class GameController : MonoBehaviour
             {
                 HoverText.SetText("");
                 ClearMap();
+                ResetHospitals();
                 GenerateMap();
 
                 Instantiate(Player, PlayerSpawnPosition, Quaternion.Euler(0, 90, 0));
@@ -106,6 +107,10 @@ public class GameController : MonoBehaviour
         {
             Destroy(soldier);
         }
+    }
+
+    private void ResetHospitals()
+    {
 
         GameObject[] ExistingHospitals = GameObject.FindGameObjectsWithTag("Hospital");
         foreach (GameObject hospital in ExistingHospitals)
